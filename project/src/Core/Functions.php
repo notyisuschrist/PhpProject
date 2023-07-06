@@ -1,6 +1,6 @@
 <?php
 
-function basePath($route): string{
+function basePath($route): string {
     return BASE_PATH . $route;
 }
 
@@ -14,7 +14,12 @@ function controllers($route): string {
     return basePath('controllers/' . $route);
 }
 
-function urlValue($value)
-{
+function urlValue($value){
     return $_SERVER['REQUEST_URI'] === $value;
+}
+
+function authorize($condition){
+    if(!$condition){
+        abort(403);
+    }
 }

@@ -1,5 +1,3 @@
 <?php
 
-views('players.views.php',[
-    'heading' => 'Players'
-]);
+views('players.views.php');
