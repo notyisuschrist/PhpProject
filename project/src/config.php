@@ -1,6 +1,10 @@
 <?php
 
+<<<<<<< HEAD
 return [
+=======
+return  [
+>>>>>>> origin/master
     'database' => [
         'host' => 'db',
         'dbname' => 'database',
