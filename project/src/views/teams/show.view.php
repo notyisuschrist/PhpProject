@@ -1,8 +1,8 @@
 <?php
-    require basePath('views/partials/up.php');
-    require basePath('views/partials/nav.php');
-    require basePath('views/partials/header.php');
-    ?>
+require basePath('views/partials/up.php');
+require basePath('views/partials/nav.php');
+require basePath('views/partials/header.php');
+?>
     <main>
         <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
             <!-- Your content -->
@@ -25,10 +25,9 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <?php foreach($teams as $team) : ?>
                     <tr class="mx-auto border-b">
                         <th scope="row" class="px-6 py-4 text-gray-900 whitespace-nowrap ">
-                            <a href="team?name=<?=$team['name']?>"><?= $team['name'] ?></a>
+                            <?= $team['name'] ?>
                         </th>
                         <td class="px-6 py-4">
                             <?= $team['win'] ?>
@@ -37,14 +36,25 @@
                             <?= $team['lose'] ?>
                         </td>
                         <td class="px-6 py-4">
-                            <?= $team['win'] / ($team['lose'] + $team['win']) ?? '0'?>
+                            <?= $team['win'] / ($team['lose'] + $team['win']) ?? '0' ?>
                         </td>
                     </tr>
-                    <?php endforeach; ?>
                     </tbody>
                 </table>
                 <br>
-                <a class="text-md text-blue-500 hover:underline" href="/teams/create">+ Add a new team</a>
             </div>
+            <div class="flex inline gap-x-4">
+                <form method="POST" action="/team">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="hidden" name="id" value="<?= $team['id']?>">
+                    <button class="text-sm font-semibold text-red-500 rounded-md px-3 py-2 hover:bg-red-500 hover:text-white hover:rounded-md hover:shadow-sm">
+                        Delete
+                    </button>
+                </form>
+                <a href="/team/edit?name=<?= $team['name'] ?>"
+                   class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"">Edit</a>
+
+            </div>
+        </div>
     </main>
-<?=require basePath('views/partials/down.php');?>
+<?= require basePath('views/partials/down.php'); ?>

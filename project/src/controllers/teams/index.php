@@ -1,7 +1,9 @@
 <?php
 
-$config = require basePath('config.php');
-$db = new Database($config['database'], 'user', 'pass');
+use Core\App;
+use Core\Database;
+
+$db = App::resolve(Database::class);
 
 $teams = $db -> query("select * from teams", []) ->statement ->fetchAll();
 

@@ -10,7 +10,7 @@
                     <div class="ml-10 flex items-baseline space-x-4">
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                         <a href="/" class="<?= uriValue('/') ? 'bg-gray-900 text-white' : "text-gray-300 hover:bg-gray-700 hover:text-white" ?> rounded-md px-3 py-2 text-sm font-medium">Home</a>
-                        <a href="/players" class="<?= uriValue('/players') ? 'bg-gray-900 text-white' : "text-gray-300 hover:bg-gray-700 hover:text-white" ?> rounded-md px-3 py-2 text-sm font-medium">Players</a>
+<!--                        <a href="/players" class="--><?php //= uriValue('/players') ? 'bg-gray-900 text-white' : "text-gray-300 hover:bg-gray-700 hover:text-white" ?><!-- rounded-md px-3 py-2 text-sm font-medium">Players</a>-->
                         <a href="/teams" class="<?= uriValue('/teams') ? 'bg-gray-900 text-white' : "text-gray-300 hover:bg-gray-700 hover:text-white" ?> rounded-md px-3 py-2 text-sm font-medium">Teams</a>
                     </div>
                 </div>
