@@ -28,7 +28,8 @@
                     </button>
 
                     <!-- Profile dropdown -->
-                    <div class="relative ml-3">
+                    <div class="relative m-3">
+                    <?php if(isset($_SESSION['user'])) : ?>
                         <div>
                             <button type="button"
                                     class="flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
@@ -39,6 +40,9 @@
                                      alt="">
                             </button>
                         </div>
+                    <?php else : ?>
+                        <a href="/register"><button class="rounded-md bg-gray-600 px-3 py-2 text-sm font-semibold text-black shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600">Register</button></a>
+                    <?php endif; ?>
 
                         <!--
                           Dropdown menu, show/hide based on menu state.

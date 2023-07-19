@@ -13,7 +13,7 @@ if (! Validator::inputString($_POST['name'], 1, 20)) {
 }
 
 if (! empty($errors)) {
-    return view("notes/create.view.php", [
+    views("notes/create.view.php", [
         'heading' => 'Create Note',
         'errors' => $errors
     ]);

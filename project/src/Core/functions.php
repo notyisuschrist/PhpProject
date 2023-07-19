@@ -26,7 +26,7 @@ function abort($code = 404)
     die();
 }
 
-function views(string $route, $args = []): void {
+function views(string $route, $args = []){
     extract($args);
     require basePath('views/' . $route);
 }
