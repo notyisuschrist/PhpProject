@@ -19,10 +19,11 @@ if (! empty($errors)) {
     ]);
 }
 
-$db -> query("INSERT INTO teams(name, win, lose) VALUES(:name, :win, :lose)", [
+$db -> query("INSERT INTO teams(name, win, lose, user_id) VALUES(:name, :win, :lose, :user_id)", [
     'name' => strtoupper($_POST['name']),
     'win' => $_POST['win'],
-    'lose' => $_POST['lose']
+    'lose' => $_POST['lose'],
+    'user_id' => $_SESSION['user']['id']
 ]) ->statement ->fetchAll();
 
 header('location: /teams');

@@ -1,8 +1,6 @@
 <?php
 
-$email = [];
-
-views('register/create.view.php', [
+views('login/create.view.php', [
     'heading' => 'Register',
     'errors' => []
 ]);

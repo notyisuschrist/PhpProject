@@ -4,15 +4,17 @@ use Core\App;
 use Core\Database;
 
 $name = $_GET['name'];
+$currentUserId = $_SESSION['user']['id'];
 
 $db = App::resolve(Database::class);
 
-$team = $db -> query ("select * from teams where name = ?", [$name]) -> findOrAbort();
+$team = $db -> query ("select * from teams where name = :name", [
+    'name' => $name
+]) -> findOrAbort();
 
-$currentUserId = 1;
-$heading = $team['name'];
+authorize($condition = ($currentUserId === $team['user_id']));
 
 views('teams/show.view.php',[
-    'heading' => $heading,
+    'heading' => $team['name'],
     'team' => $team
 ]);

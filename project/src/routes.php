@@ -15,3 +15,7 @@ $router -> post('/teams', 'controllers/teams/store.php');
 
 $router-> get('/register', 'controllers/register/create.php')->only('guest');
 $router-> post('/register', 'controllers/register/store.php');
+
+$router-> get('/login', 'controllers/login/create.php')->only('guest');
+$router-> post('/login', 'controllers/login/store.php')->only('guest');
+$router-> delete('/', 'controllers/login/destroy.php')->only('auth');

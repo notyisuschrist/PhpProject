@@ -29,7 +29,7 @@ class Database{
     }
 
     public function find(){
-        return $this -> statement -> fetch();
+        return ($this -> statement -> fetch()) ?? false;
     }
 
     public function findOrAbort(){
